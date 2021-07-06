@@ -1,10 +1,17 @@
 import http.server
 import socketserver
 
-PORT=10000
+class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/":
+            self.path = 'webpage.html'
+        return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
-Handler = http.server.SimpleHTTPRequestHandler
+# Create an object of the above class
+handler_object = MyHttpRequestHandler
 
-with socketserver.TCPServer(("", PORT), Handler) as http:
-    print("Serving port: ", PORT )
-    http.serve_forever()
+PORT = 10000
+my_server = socketserver.TCPServer(("", PORT), handler_object)
+
+# Star the server
+my_server.serve_forever()
