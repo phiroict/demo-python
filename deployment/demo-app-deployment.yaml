@@ -14,7 +14,7 @@ spec:
         app: demo-app
     spec:
       containers:
-      - image: docker.io/phiroict/demo:20210705.001
+      - image: docker.io/phiroict/demo:20210705.002
         name: demo-app
         ports:
         - containerPort: 10000
