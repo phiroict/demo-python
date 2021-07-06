@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - image: docker.io/phiroict/demo:20210705.001
-        name: guestbook-ui
+        name: demo-app
         ports:
         - containerPort: 10000
 
