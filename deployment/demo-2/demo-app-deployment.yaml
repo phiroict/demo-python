@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app2  
+  labels:
+    app: demo-app2  
+    version: v2
+spec:
+  replicas: 5
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: demo-app2
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: demo-app2
+        version: v2
+    spec:
+      containers:
+      - image: docker.io/phiroict/demo2:20210705.003
+        name: demo-app2
+        ports:
+        - containerPort: 10000
+        
