@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: demo-app
+        version: v2
     spec:
       containers:
       - image: docker.io/phiroict/demo:20210705.002
