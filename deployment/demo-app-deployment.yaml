@@ -1,15 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app
-  version: v1
+  name: demo-app  
+  labels:
+    app: demo-app  
+    version: v2
 spec:
   replicas: 5
   revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: demo-app
-      version: v1
+      version: v2
   template:
     metadata:
       labels:
